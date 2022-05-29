@@ -1,9 +1,12 @@
 from django.shortcuts import render
+from .models import Category, Photo
 
 # Create your views here.
 
 def index(request):
-    return render(request,"index.html")
+    categories = Category.objects.all()
+    context = {'categories': categories}
+    return render(request,"index.html",context)
 
 
 def viewPhoto(request, pk):
