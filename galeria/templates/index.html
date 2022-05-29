@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
-{% comment %} <style>
+ <style>
     .img-thumbnail{
         height:200px;
+        object-fit: cover;
     }
 
-</style> {% endcomment %}
+</style> 
 
 
 
 {% block content %}
-    <div>
+    {% comment %} <div>
         <nav class="navbar navbar-light bg-light justify-content-between">
         <a class="navbar-brand">Fliq Galeria</a>
         <div class="navbar-nav">
-        {% comment %} <a class="nav-item nav-link active" href="#">Home</a> {% endcomment %}
         <a class="nav-item nav-link active" href="{% url 'manage' %}">Manage Photos</a>
         </div>
         <form class="form-inline">
@@ -22,11 +22,11 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
         </nav>
-    </div>
+    </div> {% endcomment %}
 
 
     
-    <div class="card mt-3 col-md-3">
+    {% comment %} <div class="card mt-3 col-md-3">
         <div class="card-header">
             Categories
         </div>
@@ -39,19 +39,32 @@
             {% endfor %}
         </ul>
 
-        </div>
-    </div>
+    </div> {% endcomment %}
 
-{% comment %} Images Display {% endcomment %}
-    <div class="col-md-10 mt-3">
-        <div class="row">
-            <div class="col-md-4 mt-2">
-                <div class="card">
-                    <img class="img-thumbnail" src="https://dam.esquirelat.com/wp-content/uploads/2020/12/mejores-sneakers-del-ano.jpg" alt="Card image cap">
-                    <a href="{% url 'photo' 2 %}" class="btn btn-outline-dark btn-sm m-1">View</a>
+        <div class="col-md-9">
+            <div class="row">
+                {% for photo in photos %}
+                <div class="col-md-4 mt-2">
+                    <div class="card">
+                        <img class="img-thumbnail" src="{{photo.image.url}}" alt="Card image cap">
+                        <div class="card-body">
+                            <small>Category: {{photo.category.name}}</small>
+                        </div>
+                        
+                        <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
+                    </div>
                 </div>
+
+                {% empty %}
+                <h3>Ooops!Gallery empty</h3>
+
+                {% endfor %}
+
             </div>
-    </div>
+        </div>
+
+
+
 
 {% endblock content %}
 
