@@ -7,10 +7,29 @@
 
 </style> {% endcomment %}
 
-{% block content %}
 
-    <h1> Home Page</h1> 
-    <div class="col-md-10">
+
+{% block content %}
+<div>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand">Fliq Galeria</a>
+    <div class="navbar-nav">
+      {% comment %} <a class="nav-item nav-link active" href="#">Home</a> {% endcomment %}
+      <a class="nav-item nav-link active" href="{% url 'manage' %}">Manage Photos</a>
+    </div>
+    <form class="form-inline">
+        <input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </nav>
+</div>
+    
+
+    {% comment %} <div>
+        <a href="{% url 'manage' %}" class="btn btn-outline-dark btn-sm m-1">manage Photos</a>
+    </div> {% endcomment %}
+
+    <div class="col-md-10 mt-3">
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
@@ -18,7 +37,7 @@
                     {% comment %} <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div> {% endcomment %}
-                    <a class="btn btn-outline-dark btn-sm m-1">View</a>
+                    <a href="{% url 'photo' 2 %}" class="btn btn-outline-dark btn-sm m-1">View</a>
                 </div>
             </div>
 
@@ -28,7 +47,27 @@
                     {% comment %} <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div> {% endcomment %}
-                    <a class="btn btn-outline-dark btn-sm m-1">View</a>
+                    <a href="{% url 'photo' 2 %}" class="btn btn-outline-dark btn-sm m-1">View</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="img-thumbnail" src="https://dam.esquirelat.com/wp-content/uploads/2020/12/mejores-sneakers-del-ano.jpg" alt="Card image cap">
+                    {% comment %} <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div> {% endcomment %}
+                    <a href="{% url 'photo' 2 %}" class="btn btn-outline-dark btn-sm m-1">View</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="img-thumbnail" src="https://dam.esquirelat.com/wp-content/uploads/2020/12/mejores-sneakers-del-ano.jpg" alt="Card image cap">
+                    {% comment %} <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div> {% endcomment %}
+                    <a href="{% url 'photo' 2 %}" class="btn btn-outline-dark btn-sm m-1">View</a>
                 </div>
             </div>
 
