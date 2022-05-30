@@ -16,4 +16,6 @@ def viewPhoto(request, pk):
 
 
 def manage(request):
-    return render(request,"manage.html")
+    categories = Category.objects.all()
+    context = {'categories': categories}
+    return render(request,"manage.html", context)
