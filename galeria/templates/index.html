@@ -1,33 +1,25 @@
 {% extends "base.html" %}
 
- <style>
-    .img-thumbnail{
-        height:200px;
-        width:200px;
-       
-    }
+ {% comment %} <style>
+    .img {
+   
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
+}
+</style>  {% endcomment %}
 
-</style> 
-
-
-
+ 
 {% block content %}
-    <div>
-        <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand">Fliq Galeria</a>
-        <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="{% url 'manage' %}">Manage Photos</a>
-        </div>
+
+    <div class="col-md-12">
         <form class="form-inline">
             <input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-        </nav>
+       <a class="btn btn-outline-success" href="{% url 'manage' %}">Add Photo</a>
     </div> 
-
-
-    
-   <div class="card mt-3 col-md-3">
+   <div class="card mt-3 col-md-4">
         <div class="card-header">
             Categories
         </div>
@@ -42,12 +34,12 @@
 
     </div> 
 
-        <div class="col-md-9">
+        <div>
             <div class="row">
                 {% for photo in photos %}
                 <div class="col-md-4 mt-2">
                     <div class="card">
-                        <img class="img-thumbnail" src="{{photo.image.url}}" alt="Card image cap">
+                        <img style="object-fit:cover;" src="{{photo.image.url}}" alt="Card image cap">
                         <div class="card-body">
                             <small>Category: {{photo.category.name}}</small>
                         </div>
