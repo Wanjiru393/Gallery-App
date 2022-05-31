@@ -41,10 +41,18 @@
             Location
         </div>
         <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">
+                <a href="{% url 'home' %}">Home</a>
+            </li>
            
             {% for location in locations %}
 
-             <li class="list-group-item">{{ location.name }}</li>
+             <li class="list-group-item">
+                  <a href="{% url 'home' %}?location={{location.name}}">
+                      {{ location.name }}</a>
+
+                  </li>
 
             {% endfor %}
         </ul>
@@ -65,8 +73,9 @@
                 </div>
 
                 {% empty %}
-                <h3>Ooops!Gallery empty</h3>
-
+                <div class="container mt-2">
+                <h5>Ooops! Gallery empty</h5>
+                </div>
                 {% endfor %}
 
             </div>
