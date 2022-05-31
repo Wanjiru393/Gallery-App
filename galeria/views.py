@@ -10,6 +10,12 @@ def index(request):
     return render(request,"index.html",context)
 
 
+
+def searchImage(request):
+   
+    return render(request,"photo.html", {'photo':photo})
+
+
 def viewPhoto(request, pk):
     photo = Photo.objects.get(id=pk)
     return render(request,"photo.html", {'photo':photo})
