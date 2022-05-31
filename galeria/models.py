@@ -10,10 +10,10 @@ class Category(models.Model):
 
 
 class Location(models.Model):
-    location = models.CharField(max_length=100,blank=False, null=False)
+    name = models.CharField(max_length=100,blank=False, null=False)
 
     def __str__(self):
-        return self.location
+        return self.name
 
 
 class Photo(models.Model):

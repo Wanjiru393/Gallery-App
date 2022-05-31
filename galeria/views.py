@@ -1,19 +1,20 @@
 from django.shortcuts import render
-from .models import Category, Photo
+from .models import Category, Photo, Location
 
 # Create your views here.
 
 def index(request):
     categories = Category.objects.all()
+    locations = Location.objects.all()
     photos = Photo.objects.all()
-    context = {'categories': categories, 'photos': photos}
+    context = {'categories': categories, 'photos': photos, 'locations': locations}
     return render(request,"index.html",context)
 
 
 
-def searchImage(request):
+# def searchImage(request):
    
-    return render(request,"photo.html", {'photo':photo})
+#     return render(request,"photo.html", {'photo':photo})
 
 
 def viewPhoto(request, pk):
@@ -23,6 +24,7 @@ def viewPhoto(request, pk):
 
 def manage(request):
     categories = Category.objects.all()
+    locations = Location.objects.all()
 
     if request.method == 'POST':
 
@@ -36,12 +38,20 @@ def manage(request):
         else:
             category = None
 
+        if data['location'] != 'none':
+            location = Location.objects.get(id=data['location'])
+        elif data['location_new'] != '':
+            location, created = Location.objects.get_or_create(name=data['location_new'])
+        else:
+            location = None
+
         photo = Photo.objects.create(
             category=category,
+            location=location,
             description=data['description'],
             image=image,
 
         )
 
-    context = {'categories': categories}
+    context = {'categories': categories, 'locations':locations}
     return render(request,"manage.html", context)

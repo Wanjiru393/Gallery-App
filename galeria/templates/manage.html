@@ -5,7 +5,7 @@
 {% block content %}
 <div class="container ">
     <div class="row justify-content-center">
-        <div class="col-md-5">
+        <div class="col-md-6">
             <a href="{% url 'home' %}" class="btn btn-outline-dark btn-sm m-1">Back</a>
             <div class="card">
 
@@ -25,6 +25,20 @@
                             
                         </select>
                     </div>
+
+                    <div class="form-group m-3">
+                        <label>Select Location</label>
+                        <select name="location" class="form-control">
+                           <small> <option value='none'>location</option></small>
+
+                            {% for location in locations%}
+                                <option value='{{location.id}}'>{{location.name}}</option>
+
+                            {% endfor %}
+                            
+                        </select>
+                    </div>
+
                     <div class="form-group m-3">
                         <label>Upload Image</label>
                         <input required name="image" type="file" class="form-control-file">
@@ -35,9 +49,13 @@
                     </div>
                     
 
-                    <div class="form-group m-3">
-                        <label>Create new Category</label>
-                        <input name="category_new" type="text" placeholder="Create new Category" class="form-control">
+                    <div class="form-group m-2">
+                        <label>New Category</label>
+                        <input name="category_new" type="text" placeholder="Category" class="form-control">
+                    </div>
+                    <div class="form-group m-2">
+                        <label>New Location</label>
+                        <input name="location_new" type="text" placeholder="Location" class="form-control">
                     </div>
 
                     

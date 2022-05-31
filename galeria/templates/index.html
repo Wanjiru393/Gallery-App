@@ -19,7 +19,9 @@
         </form>
        <a class="btn btn-outline-success" href="{% url 'manage' %}">Add Photo</a>
     </div> 
-   <div class="card mt-3 col-md-4">
+ 
+
+   {% comment %} <div class="card mt-3 col-md-4">
         <div class="card-header">
             Categories
         </div>
@@ -31,7 +33,21 @@
 
             {% endfor %}
         </ul>
+    </div>  {% endcomment %}
 
+
+    <div class="card mt-3 col-md-4">
+        <div class="card-header">
+            Location
+        </div>
+        <ul class="list-group list-group-flush">
+           
+            {% for location in locations %}
+
+             <li class="list-group-item">{{ location.name }}</li>
+
+            {% endfor %}
+        </ul>
     </div> 
 
         <div>
