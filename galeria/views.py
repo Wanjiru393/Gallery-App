@@ -21,17 +21,22 @@ def index(request):
 
 
 
-def search(request):
-    if request.method == "POST":
-       searched = request.POST['searched']
-       categories = Category.objects.filter(name__contains = searched)
+def search_results(request):
 
-       return render(request,"search.html", {'searched': searched,
-        'categories':categories})
-    
+    if 'category' in request.GET and request.GET["category"]:
+        search_term = request.GET.get("category")
+        searched_categories = Category.search_by_category(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html',{"message":message,"category": searched_categories})
+
     else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html',{"message":message})
+    
+    
 
-     return render(request,"search.html", {})
+
 
 def viewPhoto(request, pk):
     photo = Photo.objects.get(id=pk)

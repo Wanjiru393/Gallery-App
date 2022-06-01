@@ -83,13 +83,13 @@
             <div class="row">
                 {% for photo in photos %}
                 <div class="col-md-4 mt-3">
-                    <div class="card">
-                        <img style="width:210px;height:250px;" src="{{photo.image.url}}" alt="Card image cap">
+                    <div class="container-fluid">
+                        <img style="width:220px;height:220px;" src="{{photo.image.url}}" alt="Card image cap">
                         {% comment %} <div class="card-body">
                             <small>Category: {{photo.category.name}}</small>
                         </div> {% endcomment %}
                         
-                        <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
+                        <a href="{% url 'photo' photo.id %}" class="btn btn-outline-secondary btn-sm m-1">View</a>
                     </div>
                 </div>
 
