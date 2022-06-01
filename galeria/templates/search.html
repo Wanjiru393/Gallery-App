@@ -1,10 +1,26 @@
-{% extends 'base.html'%}
-
+{%extends 'base.html'%} 
 {% block content %}
-    <center>
-    
-    </center>
+<div class="container">
 
-{% endblock content %}
+  <div class="row">
+    {% if categories%}
+      <h2>Found {{ categories }} of searched term {{message}}</h2>
+    {% else %}
+      <h2> Found no category for the search term {{message}}</h2>
+    {% endif %}
 
+  </div>
+
+  <div class="row">
+
+  {% if categories %}
+    {% for category in categories %}
+      <div class="col-sm-6 col-md-3">
+          <h1>{{category.image}}</h1>
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
 
