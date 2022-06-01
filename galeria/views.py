@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Category, Photo, Location
 
-# Create your views here.
+# Create your views here. 
 
 def index(request):
     location = request.GET.get('location')
@@ -21,10 +21,17 @@ def index(request):
 
 
 
-# def searchImage(request):
-   
-#     return render(request,"photo.html", {'photo':photo})
+def search(request):
+    if request.method == "POST":
+       searched = request.POST['searched']
+       categories = Category.objects.filter(name__contains = searched)
 
+       return render(request,"search.html", {'searched': searched,
+        'categories':categories})
+    
+    else:
+
+     return render(request,"search.html", {})
 
 def viewPhoto(request, pk):
     photo = Photo.objects.get(id=pk)

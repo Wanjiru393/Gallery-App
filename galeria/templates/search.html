@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <center>
+        {% if searched %}
+
+            <h1>You Searched For {{ searched }} </h1>
+            
+        {% else %}
+
+            <h2>Forgot to Search a category</h2>
+
+        {% endif %}
+    
+    </center>
+
+{% endblock content %}
+
+

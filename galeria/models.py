@@ -19,6 +19,7 @@ class Location(models.Model):
 class Photo(models.Model):
     location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
+    
     image = models.ImageField(null=False, blank=False)
     description = models.TextField()
 
