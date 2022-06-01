@@ -5,6 +5,11 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=100,blank=False, null=False)
 
+    @classmethod
+    def search_by_category_name(cls,search_term):
+        images = cls.objects.filter(category__icontains=search_term)
+        return images
+
     def __str__(self):
         return self.name
 
