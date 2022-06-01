@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mt-3 justify-content-center" >
+<div class="container my-3 justify-content-center" >
   <div class="col-md-12">
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse mt-2">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="{% url 'home' %}">FLIQ GALERIA</a>
@@ -22,20 +22,21 @@
 
         </form>
       </div>
-      <!-- search form end -->
     </div>
   </nav>
 
    <div class="nav-scroller">
       <nav class="nav d-flex justify-content-between">
        
-        <a id="lin" href="{% url 'home' %}">All Images</a>
+        <a class="btn btn-outline my-1" style="text-decoration:none; color:black" id="lin" href="{% url 'home' %}">Home</a>
 
         {% for location in locations %}
-        <a id="lin"class="p-2 link-dark" style="text-decoration:none; color: cyan;" href="{% url 'home' %}?location={{location.name}}">{{location.name}}</a>
+        <a id="lin"class="btn btn-outline my-1" style="text-decoration:none;" href="{% url 'home' %}?location={{location.name}}">{{location.name}}</a>
         {% endfor %}
 
       </nav>
+
+</div>
 
 
 
@@ -55,7 +56,7 @@
     </div> 
 
  <!--Modal-->
-    <div class="modal" id="modal" style="color:white;">
+    {% comment %} <div class="modal" id="modal" style="color:white;">
       <div class="modal-header">
           Image
       </div>
@@ -69,7 +70,7 @@
       </div>
     </div>
 
-    <div id="overlay"></div>
+    <div id="overlay"></div> {% endcomment %}
 
 
 
@@ -91,7 +92,7 @@
 
     
         <div>
-            <div class="row">
+            <div class="row my-1">
                 {% for photo in photos %}
                 <div class="col-md-3 mt-1">
                     <div class="container-fluid">
