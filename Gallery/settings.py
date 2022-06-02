@@ -152,25 +152,58 @@ USE_I18N = True
 USE_TZ = True
 
 
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+MEDIA_URL = '/static/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+django_on_heroku.settings(locals())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
-MEDIA_URL = '/images/'
+# STATIC_URL = 'static/'
+# MEDIA_URL = '/images/'
 
-STATICFILES_DIRS = [
-    BASE_DIR /'static/'
-]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_DIRS = [
+#     BASE_DIR /'static/'
+# ]
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_ROOT = BASE_DIR /'static/images'
-
-
-# Configure Django App for Heroku.
+# MEDIA_ROOT = BASE_DIR /'static/images'
 
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+# # Configure Django App for Heroku.
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-django_on_heroku.settings(locals())
+
+# # Default primary key field type
+# # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# django_on_heroku.settings(locals())
