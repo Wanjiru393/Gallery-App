@@ -1,6 +1,5 @@
 # Project Title
-
-Fliq Galeria
+La Galleria 
 
 ## Getting Started
 
